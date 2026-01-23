@@ -6,7 +6,7 @@ on:
       runtime:
         description: "Target runtime"
         required: false
-        default: "2024.1400.3.933"
+        default: "2024.1400.3.948"
       runner:
         description: "Runner"
         required: false
@@ -15,6 +15,10 @@ on:
         description: "Platform"
         required: false
         default: "operagx"
+      yyc:
+        description: "y"
+        required: false
+        default: "true"
 permissions:
   contents: write
 
@@ -84,6 +88,6 @@ jobs:
         env:
           YYP: ${{ github.workspace }}/Ganary/Ganary/Ganary.yyp
           USERDIR: ${{ steps.igor.outputs.user-dir }}
-          YYC: true
+          YYC: ${{ inputs.yyc }}
           TARGETPLATFORMS: ${{ inputs.platform }}
           TARGET_RUNTIME: ${{ inputs.runtime }}
