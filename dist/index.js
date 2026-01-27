@@ -35486,6 +35486,14 @@ class Gms2Compile {
             return (0,external_path_.join)(gradleRootDir, "gradlew");
         }
     }
+    windowsYYCSymbolDir() {
+        const buildCacheDir = this.localSettings["machine.General Settings.Paths.IDE.AssetCacheFolder"];
+        return (0,external_path_.join)(buildCacheDir, this.config, "Scripts/llvm-win/Sln/x64/Release");
+    }
+    /**Default to the yyp file base name, but should really be looked up from the "option_windows_executable_name" key in options_windows */
+    windowsExecutableBaseName() {
+        return this.baseName;
+    }
     _generateWorkerCommands(platform, generatePublishBuild = false) {
         const worker = this._convertToIgorWorker(platform);
         let command = "Package";
@@ -35693,6 +35701,9 @@ async function run() {
         core.info(`Completed building.`);
         core.setOutput("out-name", outName);
         core.setOutput("out-dir", outDir);
+        if (platform === "windows" && yyc) {
+            core.setOutput("windows-symbols-dir", compiler.windowsYYCSymbolDir());
+        }
     }
     catch (err) {
         core.error(err);
