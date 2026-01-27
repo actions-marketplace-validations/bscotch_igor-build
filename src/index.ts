@@ -76,6 +76,10 @@ export async function run() {
     core.info(`Completed building.`);
     core.setOutput("out-name", outName);
     core.setOutput("out-dir", outDir);
+
+    if (platform === "windows" && yyc) {
+      core.setOutput("windows-symbols-dir", compiler.windowsYYCSymbolDir());
+    }
   } catch (err) {
     core.error(err as Error);
     core.setFailed(err as Error);

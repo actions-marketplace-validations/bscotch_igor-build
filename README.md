@@ -53,11 +53,12 @@ Used in tandem with [bscotch/igor-setup](https://github.com/bscotch/igor-setup),
 
 ### Outputs
 
-| Name       | Description                            | Example                  |
-| ---------- | -------------------------------------- | ------------------------ |
-| `out-dir`  | The directory containing the export.   | `C:\out\`                |
-| `out-name` | The name of the export file            | `example.zip`            |
-| `log-dir`  | The path to log file of Igor's output. | `C:\out\igor_output.txt` |
+| Name                  | Description                                                                   | Example                                                        |
+| --------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `out-dir`             | The directory containing the export.                                          | `C:\out\`                                                      |
+| `out-name`            | The name of the export file                                                   | `example.zip`                                                  |
+| `log-dir`             | The path to log file of Igor's output.                                        | `C:\out\igor_output.txt`                                       |
+| `windows-symbols-dir` | The path to the directory containing the YYC debug symbols for Windows builds | `C:\temp\igor\assets\Default\Scripts\llvm-win\Sln\x64\Release` |
 
 ## Examples
 

@@ -208,6 +208,18 @@ export class Gms2Compile {
     }
   }
 
+  windowsYYCSymbolDir() {
+    const buildCacheDir = this.localSettings[
+      "machine.General Settings.Paths.IDE.AssetCacheFolder"
+    ] as string;
+    return join(buildCacheDir, this.config, "Scripts/llvm-win/Sln/x64/Release");
+  }
+
+  /**Default to the yyp file base name, but should really be looked up from the "option_windows_executable_name" key in options_windows */
+  windowsExecutableBaseName() {
+    return this.baseName;
+  }
+
   private _generateWorkerCommands(
     platform: ModuleAliases,
     generatePublishBuild = false,

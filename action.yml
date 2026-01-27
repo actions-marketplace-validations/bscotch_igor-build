@@ -18,6 +18,9 @@ inputs:
   save-logs:
     description: "Whether to save the compiler output to a log file."
     default: "false"
+  gx-package-type:
+    description: "If building for Opera GX, the type of package to build."
+    default: "OperaGXPackage_Zip"
   name:
     description: "Desired executable name with extension."
 outputs:
@@ -27,9 +30,11 @@ outputs:
     description: "The name of the export file."
   log-dir:
     description: "The path to log file of Igor's output if `save-logs` is true."
+  windows-symbols-dir:
+    description: "The path to the directory containing the YYC debug symbols for Windows builds if `yyc` is true."
 branding:
-  icon: 'award'
-  color: 'purple'
+  icon: "award"
+  color: "purple"
 runs:
   using: "node20"
   main: "dist/index.js"

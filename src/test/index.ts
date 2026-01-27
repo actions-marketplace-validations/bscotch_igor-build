@@ -72,6 +72,17 @@ describe("GMS Compile", async function () {
           fs.existsSync(outFileDir),
           `Output file should be at: ${outFileDir}`,
         ).to.be.true;
+
+        if (platform == "windows" && yyc) {
+          const yycSymbol = path.join(
+            compiler.windowsYYCSymbolDir(),
+            compiler.windowsExecutableBaseName() + ".pdb",
+          );
+          expect(
+            fs.existsSync(yycSymbol),
+            `YYC PDB symbol file should be at: ${yycSymbol}`,
+          ).to.be.true;
+        }
       }
     });
   });
